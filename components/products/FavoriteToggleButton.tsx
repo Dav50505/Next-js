@@ -1,13 +1,19 @@
 import {FaHeart} from 'react-icons/fa'
 import {Button} from '../ui/button'
+import { auth } from '@clerk/nextjs/server';
+import { CardSignInButton } from '../form/Buttons';
+import { fetchFavoriteId } from '@/utils/actions';
+import FavoriteToggleForm from './FavoriteToggleForm';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-function FavoriteToggleButton({productId}:{productId:string}) {
-  // TODO: Implement favorite toggle functionality using productId
+async function FavoriteToggleButton({productId}:{productId:string}) {
+  const authObject = await auth();
+  const userId = authObject.userId;
+  if(!userId) return <CardSignInButton />
+  const favoriteId = await fetchFavoriteId({productId});
+  const isFavorite = !!favoriteId;
+
   return (
-    <Button size='icon' variant='outline' className='p-2 cursor-pointer'> 
-      <FaHeart />
-    </Button>
+    <FavoriteToggleForm favoriteId={favoriteId} productId={productId}/>
   )
 }
 

@@ -47,8 +47,8 @@ function validateImageFile(){
     }, {
         message: 'Image must be less than 8MB',
     }).refine((file)=>{
-        return !file || acceptedFileTypes.some((type)=> file.type.startsWith(type)), {
-            message: 'Invalid file type',
-        }
+        return !file || acceptedFileTypes.some((type)=> file.type.startsWith(type))
+    }, {
+        message: 'Invalid file type',
     })
 }

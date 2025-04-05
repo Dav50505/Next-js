@@ -14,3 +14,9 @@ export const uploadImage = async (image:File) => {
     if(!data) throw new Error('Failed to upload image');
     return supabase.storage.from(bucket).getPublicUrl(newName).data.publicUrl;
 }
+
+export const deleteImage = async(url:string) =>{
+  const imageName = url.split('/').pop()
+  if(!imageName) throw new Error('No image name found')
+    return supabase.storage.from(bucket).remove([imageName])
+}

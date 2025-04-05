@@ -19,8 +19,8 @@ function CreateProductPage() {
       <div className='border p-8 rounded-md'>
        <FormContainer action={createProduct}>
         <div className="grid gap-4 md:grid-cols-2 my-4">
-          <FormInput type='text' name='name' label='product name' defaultValue={name}/>
-          <FormInput type='text' name='company' label='company name' defaultValue={company}/>
+          <FormInput type='text' name='name' label='product name' placeholder='Product'/>
+          <FormInput type='text' name='company' label='company name' placeholder='Company'/>
           <PriceInput/>
           <ImageInput/>
         </div>

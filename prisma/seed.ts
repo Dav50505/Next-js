@@ -1,5 +1,5 @@
-const { PrismaClient } = require('@prisma/client');
-const products = require('./products.json');
+import { PrismaClient } from '@prisma/client';
+import products from './products.json';
 
 const prisma = new PrismaClient();
 
@@ -31,4 +31,4 @@ main()
   })
   .finally(async () => {
     await prisma.$disconnect();
-  });
+  }); 
