@@ -15,7 +15,7 @@ function CartButton() {
           schema: 'public', 
           table: 'cart_items' 
         }, 
-        (payload) => {
+        () => {
           // Refresh cart count when changes occur
           fetchCartCount()
         }
