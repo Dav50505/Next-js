@@ -5,7 +5,6 @@ import PriceInput from "@/components/form/PriceInput";
 import TextAreaInput from "@/components/form/TextAreaInput";
 import { SubmitButton } from "@/components/form/Buttons";
 import CheckBoxInput from "@/components/form/CheckBoxInput";
-import ImageInput from "@/components/form/ImageInput";
 import ImageInputContainer from "@/components/form/ImageInputContainer";
 
 

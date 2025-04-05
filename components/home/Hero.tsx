@@ -10,7 +10,7 @@ function Hero() {
           We are changing the way you shop.
         </h1>
         <p className="mt-8 max-w-xl mx-auto lg:mx-0 text-lg leading-8 text-muted-foreground">
-        At Comfy, we're redefining the furniture shopping experience. With a 
+        At Comfy, we&apos;re redefining the furniture shopping experience. With a 
         perfect blend of style, quality, and comfort, we make it easier than 
         ever to find pieces that truly feel like home. Explore our curated 
         collections, enjoy seamless online and in-store browsing, and let our 

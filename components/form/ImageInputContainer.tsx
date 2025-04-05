@@ -6,7 +6,6 @@ import FormContainer from "./FormContainer";
 import ImageInput from "./ImageInput";
 import { SubmitButton } from "./Buttons";
 import { type actionFunction } from "@/utils/types";
-import { Popsicle } from "lucide-react";
 
 type ImageInputContainerProps = {
   image: string;

@@ -10,8 +10,6 @@ import { SubmitButton } from "@/components/form/Buttons";
 
 
 function CreateProductPage() {
-  const name = faker.commerce.productName();
-  const company = faker.company.name();
   const description = "This section provides an overview of the key details, including important features, specifications, and relevant information. It highlights the main points, ensuring clarity and ease of understanding.";
   return (
     <section>
