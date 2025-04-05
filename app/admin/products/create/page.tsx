@@ -1,4 +1,4 @@
-import {faker} from '@faker-js/faker'
+// import {faker} from '@faker-js/faker'
 import FormInput from "@/components/form/FormInput";
 import { createProduct } from "@/utils/actions";
 import FormContainer from "@/components/form/FormContainer";
