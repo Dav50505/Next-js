@@ -64,3 +64,12 @@ export const CardSubmitButton =({isFavorite}:{isFavorite:boolean})=>{
     )
 }
 
+export const ProductSignInButton = () =>{
+    return (
+        <SignInButton mode='modal'>
+            <Button type='button' className='mt-4 p-2 capitalize cursor-pointer bg-red-500 hover:bg-red-600 text-white' >
+                Sign In
+            </Button>
+        </SignInButton>
+    )
+}

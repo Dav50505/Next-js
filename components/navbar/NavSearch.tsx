@@ -6,29 +6,26 @@ import { useState, useEffect } from 'react';
 
 function NavSearch() {
   const searchParams = useSearchParams();
-  const {replace} = useRouter();
+  const router = useRouter();
   const [search, setSearch] = useState(searchParams.get('search')?.toString() || '');
   
   const handleSearch = useDebouncedCallback((value: string) => {
-    console.log('Search value:', value);
-    const params = new URLSearchParams(searchParams);
+    const params = new URLSearchParams(searchParams.toString());
     if(value) {
       params.set('search', value);
     } else {
       params.delete('search');
     }
     const searchUrl = `/products?${params.toString()}`;
-    console.log('Navigating to:', searchUrl);
-    replace(searchUrl);
+    router.replace(searchUrl);
   }, 500);
 
   useEffect(() => {
     const currentSearch = searchParams.get('search');
-    console.log('Search param changed:', currentSearch);
-    if(!currentSearch) {
-      setSearch('');
+    if(currentSearch !== search) {
+      setSearch(currentSearch || '');
     }
-  }, [searchParams]);
+  }, [searchParams, search]);
 
   return (
     <Input 
@@ -38,7 +35,6 @@ function NavSearch() {
       value={search}
       onChange={(e) => {
         const newValue = e.target.value;
-        console.log('Input changed:', newValue);
         setSearch(newValue);
         handleSearch(newValue);
       }}

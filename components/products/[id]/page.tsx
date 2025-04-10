@@ -21,9 +21,11 @@ async function SingleProductPage({params}:{params:{id:string}}) {
                  priority className='w-full rounded object-cover' />
             </div>
             {/* product details second col */}
-            <div className='flex gpa-x-8 items-center'>
-                <h1 className='capitalize text-3xl font-bold'>{name}</h1>
-                <FavoriteToggleButton productId={params.id}/>
+            <div className='flex gap-x-8 items-center'>
+            <h1 className="capitalize text-3xl font-bold">{name}</h1>
+            <div className="flex items-center gap-x-2">
+                <FavoriteToggleButton productId={params.id} />
+            </div>
             </div>
             <ProductRating productId={params.id}/>
             <h4 className='text-xl mt-2'>{company}</h4>

@@ -1,15 +1,35 @@
-import React from 'react'
-import { Button } from '../ui/button'
-import { cn } from '@/lib/utils'
+"use client";
+import { useState } from "react";
+import SelectProductAmount from "./SelectProductAmount";
+import { Mode } from "./SelectProductAmount";
+import FormContainer from "../form/FormContainer";
+import { SubmitButton } from "../form/Buttons";
+import { addToCartAction } from "@/utils/actions";
+import { useAuth } from "@clerk/nextjs";
+import { ProductSignInButton } from "../form/Buttons";
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-function AddToCart ({productId, className}:{productId:string, className?: string}) {
-  // TODO: Implement add to cart functionality using productId
+function AddToCart({ productId }: { productId: string }) {
+  const [amount, setAmount] = useState<number>(1);
+  const { userId } = useAuth();
+  
   return (
-    <Button className={cn("capitalize mt-8", className)} size='lg'>
-        Add to cart
-    </Button>
-  )
+    <div className="mt-4">
+      <SelectProductAmount 
+        mode={Mode.SingleProduct} 
+        amount={amount} 
+        setAmount={setAmount}
+      />
+      {userId ? (
+        <FormContainer action={addToCartAction}>
+          <input type="hidden" name="productId" value={productId} />
+          <input type="hidden" name="amount" value={amount} />
+          <SubmitButton text="Add to Cart" className="mt-8 bg-red-600 hover:bg-red-700" />
+        </FormContainer>
+      ) : (
+        <ProductSignInButton />
+      )}
+    </div>
+  );
 }
 
-export default AddToCart
+export default AddToCart;
