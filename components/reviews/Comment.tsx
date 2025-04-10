@@ -11,7 +11,7 @@ function Comment({comment}:{comment:string}) {
   }
 
   const longComment = comment.length > 100;
-  const displayComment = longComment ? comment.slice(0,100) + "..." : comment;
+  // const displayComment = longComment ? comment.slice(0,100) + "..." : comment; // Removed unused variable
 
   return (
     <div>

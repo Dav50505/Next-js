@@ -9,9 +9,7 @@ import { toast } from 'sonner';
 
 function ThirdColumn({quantity, id}:{quantity:number, id:string}) {
   const [amount, setAmount] = useState(quantity);
-  const [isLoading, setIsLoading] = useState(false); 
   const handleAmountChange = async(value:number)=>{
-    setIsLoading(true);
     toast('Updating cart item...', { duration: 2000 });
     const result = await updateCartItemAction({
       amount:value,
@@ -19,7 +17,6 @@ function ThirdColumn({quantity, id}:{quantity:number, id:string}) {
     })
     setAmount(value)
     toast(result.message)
-    setIsLoading(false);
   }
 
   return (
