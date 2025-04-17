@@ -17,7 +17,7 @@ function Hero() {
         expert team help you bring your vision to life.
         </p>
         <Button asChild size='lg' className="mt-10"> 
-          <Link className="text-red-600" href='/products'>Shop Now</Link>
+          <Link className="bg-red-600 hover:bg-red-700" href='/products'>Shop Now</Link>
         </Button>
       </div>
       <HeroCarousel />
